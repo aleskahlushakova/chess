@@ -1,7 +1,6 @@
 package chess.utils.validator;
 
 import chess.model.Board;
-import chess.model.Cell;
 import chess.model.Game;
 import chess.model.Move;
 import chess.model.Piece;
@@ -107,6 +106,9 @@ public class GameValidator {
      * @return can checkmate be prevented
      */
     private static boolean canEscapeCheckmate(final Piece piece, final int i, final int j) {
+        final Game game = Game.getInstance();
+        final Board board = game.getBoard();
+        final Piece[][] pieces = board.getPieces();
         boolean isCheckmateAvoidable = false;
         for (int k = 0; k < BOARD_WIDTH; k++) {
             for (int m = 0; m < BOARD_HEIGHT; m++) {
@@ -119,12 +121,15 @@ public class GameValidator {
                 }
 
                 if (canBeMoved) {
+                    final Piece killed = pieces[k][m];
                     boardService.movePieceOnBoard(piece, i, j, k, m);
                     gameService.changeTurn();
                     if (!isChecked()) {
                         isCheckmateAvoidable = true;
                     }
                     boardService.movePieceOnBoard(piece, k, m, i, j);
+                    pieces[k][m] = killed;
+
                 } else {
                     gameService.changeTurn();
                 }
