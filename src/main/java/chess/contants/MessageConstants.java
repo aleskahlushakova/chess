@@ -15,5 +15,5 @@ public interface MessageConstants {
     String ENTER_END_SYMBOLIC_COORD_MSG = "Enter the end symbolic position (a-h): ";
     String ENTER_START_NUMERIC_COORD_MSG = "Enter the start numeric position (1-8): ";
     String ENTER_END_NUMERIC_COORD_MSG = "Enter the end numeric position (1-8): ";
-    String NOT_VALID_INPUT_MSG = "Symbolic coordinates should be a-h, numeric 1-8! Try again.";
+    String INVALID_INPUT_MSG = "Symbolic coordinates should be a-h, numeric 1-8! Try again.";
 }

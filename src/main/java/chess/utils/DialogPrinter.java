@@ -10,7 +10,7 @@ import static chess.contants.MessageConstants.ENTER_END_NUMERIC_COORD_MSG;
 import static chess.contants.MessageConstants.ENTER_END_SYMBOLIC_COORD_MSG;
 import static chess.contants.MessageConstants.ENTER_START_NUMERIC_COORD_MSG;
 import static chess.contants.MessageConstants.ENTER_START_SYMBOLIC_COORD_MSG;
-import static chess.contants.MessageConstants.NOT_VALID_INPUT_MSG;
+import static chess.contants.MessageConstants.INVALID_INPUT_MSG;
 import static chess.contants.MessageConstants.PLAY_MSG;
 import static chess.utils.validator.InputValidator.validateInput;
 
@@ -41,7 +41,7 @@ public class DialogPrinter {
         coords.add(input.nextLine());
 
         if (!validateInput(coords)) {
-            System.out.println(NOT_VALID_INPUT_MSG);
+            System.out.println(INVALID_INPUT_MSG);
             return retrieveCoords();
         }
 
