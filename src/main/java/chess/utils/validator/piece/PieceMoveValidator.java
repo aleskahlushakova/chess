@@ -66,7 +66,7 @@ public class PieceMoveValidator {
     public static boolean isPieceColorNotMatch(final int i, final int j, final int x, final int y) {
         final Piece king = board.getPieces()[x][y];
         final Piece piece = board.getPieces()[i][j];
-        return nonNull(piece) && !king.getColor().equals(piece.getColor());
+        return nonNull(king) && nonNull(piece) && !king.getColor().equals(piece.getColor());
     }
 
     /**

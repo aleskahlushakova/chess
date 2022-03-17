@@ -52,17 +52,17 @@ public class GameValidator {
      * @return is checkmate
      */
     public static boolean isCheckmate() {
-        boolean canEscapeCheckmate = false;
-
         for (int i = 0; i < BOARD_WIDTH; i++) {
             for (int j = 0; j < BOARD_HEIGHT; j++) {
                 final Piece piece = board.getPieces()[i][j];
                 if (nonNull(piece)) {
-                    canEscapeCheckmate = canEscapeCheckmate(piece, i, j);
+                    if(canEscapeCheckmate(piece, i, j)) {
+                        return true;
+                    }
                 }
             }
         }
-        return !canEscapeCheckmate;
+        return false;
     }
 
     /**
@@ -121,13 +121,14 @@ public class GameValidator {
                 }
 
                 if (canBeMoved) {
+                    final Piece killed = pieces[k][m];
                     boardService.movePieceOnBoard(piece, i, j, k, m);
                     gameService.changeTurn();
                     if (!isChecked()) {
                         isCheckmateAvoidable = true;
                     }
                     boardService.movePieceOnBoard(piece, k, m, i, j);
-
+                    pieces[k][m] = killed;
                 } else {
                     gameService.changeTurn();
                 }

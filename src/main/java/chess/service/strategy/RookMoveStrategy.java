@@ -31,7 +31,7 @@ public class RookMoveStrategy implements PieceMoveService {
             if (isNull(endMovePiece) && count == absX + 1) {
                 return true;
             } else
-                return count == absX - 1 && canPlaceAttackingPiece(x2, y2);
+                return count == Math.abs(absX - 1) && canPlaceAttackingPiece(x2, y2);
         }
 
         return false;
