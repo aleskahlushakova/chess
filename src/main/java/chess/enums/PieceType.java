@@ -10,15 +10,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Getter
 public enum PieceType {
-    PAWN('\u2659', '\u265F', 10),
-    QUEEN('\u2655', '\u265B', 200),
-    KING('\u2654', '\u265A', 500),
-    BISHOP('\u2657', '\u265D', 50),
-    ROOK('\u2656', '\u265C', 100),
-    KNIGHT('\u2658', '\u265E', 50);
+    PAWN('\u2659', '\u265F'),
+    QUEEN('\u2655', '\u265B'),
+    KING('\u2654', '\u265A'),
+    BISHOP('\u2657', '\u265D'),
+    ROOK('\u2656', '\u265C'),
+    KNIGHT('\u2658', '\u265E');
 
     private final char whiteSymbol;
     private final char blackSymbol;
-    private final int heuristicValue;
 
 }

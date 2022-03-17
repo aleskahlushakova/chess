@@ -16,7 +16,6 @@ public class Board {
         return pieces[x][y];
     }
 
-
     public void setPiece(final Cell cell, final Piece piece) {
         pieces[cell.getX()][cell.getY()] = piece;
     }

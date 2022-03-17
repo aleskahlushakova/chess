@@ -121,14 +121,12 @@ public class GameValidator {
                 }
 
                 if (canBeMoved) {
-                    final Piece killed = pieces[k][m];
                     boardService.movePieceOnBoard(piece, i, j, k, m);
                     gameService.changeTurn();
                     if (!isChecked()) {
                         isCheckmateAvoidable = true;
                     }
                     boardService.movePieceOnBoard(piece, k, m, i, j);
-                    pieces[k][m] = killed;
 
                 } else {
                     gameService.changeTurn();
